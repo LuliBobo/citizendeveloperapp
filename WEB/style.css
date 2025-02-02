@@ -1,211 +1,236 @@
 /* Globálne štýly */
 * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #e0f7fa, #ffffff);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    color: #333;
-  }
-  
-  /* Animácia posunu gradientu na pozadí */
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  /* Hlavička a navigácia */
-  header {
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-  }
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-  }
-  .nav-links a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover {
-    color: #007BFF;
-  }
-  
-  /* Sekcia hrdinu */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #333;
+}
+
+/* Animácia posunu gradientu na pozadí */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hlavička a navigácia */
+header {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007BFF;
+}
+
+/* Sekcia hrdinu */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4rem 2rem;
+  min-height: 80vh;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: #007BFF;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* Pohyblivý text */
+.scrolling-text {
+  margin: 1rem 0;
+  font-size: 1.25rem;
+  color: #555;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrolling-text::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #fff);
+}
+
+/* Obrázok hrdinu a efekt zobrazovania */
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Animácia "reveal" (pre obrázky/sekcie pri scrollovaní) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Karusel referencií */
+.testimonials {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.testimonials h2 {
+  margin-bottom: 2rem;
+  color: #007BFF;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  height: 150px; /* Upravte výšku podľa potreby */
+}
+
+.carousel-item {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.carousel-item.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Sekcia demo (video) */
+.demo {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.demo h2 {
+  color: #007BFF;
+  margin-bottom: 1.5rem;
+}
+
+.video-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+video {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Pätička */
+footer {
+  background: #fff;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.newsletter input[type="email"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  width: 250px;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+}
+
+.newsletter button {
+  padding: 0.5rem 1rem;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.newsletter button:hover {
+  background: #0056b3;
+}
+
+.social-media {
+  margin: 1rem 0;
+}
+
+.social-media a {
+  margin: 0 0.5rem;
+  color: #007BFF;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+/* Responzívne štýly */
+@media (max-width: 768px) {
   .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 4rem 2rem;
-    min-height: 80vh;
+    flex-direction: column;
+    text-align: center;
   }
-  .hero-content {
-    max-width: 50%;
-  }
-  .hero-content h1 {
-    font-size: 2.5rem;
-    color: #007BFF;
-  }
-  .cta-button {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #007BFF;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-  }
-  .cta-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Pohyblivý text */
-  .scrolling-text {
-    margin: 1rem 0;
-    font-size: 1.25rem;
-    color: #555;
-    white-space: nowrap;
-    overflow: hidden;
-    position: relative;
-  }
-  .scrolling-text::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 50px;
-    height: 100%;
-    background: linear-gradient(to right, transparent, #fff);
-  }
-  
-  /* Obrázok hrdinu a efekt zobrazovania */
-  .hero-image img {
+
+  .hero-content, .hero-image {
     max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
-  
-  /* Animácia "reveal" (pre obrázky/sekcie pri scrollovaní) */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Karusel referencií */
-  .testimonials {
-    padding: 3rem 2rem;
-    text-align: center;
-    background: #f9f9f9;
-  }
-  .testimonials h2 {
-    margin-bottom: 2rem;
-    color: #007BFF;
-  }
-  .carousel {
-    position: relative;
-    overflow: hidden;
-    height: 150px; /* Upravte výšku podľa potreby */
-  }
-  .carousel-item {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-  .carousel-item.active {
-    opacity: 1;
-    position: relative;
-  }
-  
-  /* Sekcia demo (video) */
-  .demo {
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-  .demo h2 {
-    color: #007BFF;
-    margin-bottom: 1.5rem;
-  }
-  .video-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  video {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  
-  /* Pätička */
-  footer {
-    background: #fff;
-    padding: 2rem;
-    text-align: center;
-    border-top: 1px solid #eee;
-  }
-  .newsletter input[type="email"] {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    width: 250px;
-    border-radius: 3px;
-    margin-right: 0.5rem;
-  }
-  .newsletter button {
-    padding: 0.5rem 1rem;
-    background: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  .newsletter button:hover {
-    background: #0056b3;
-  }
-  .social-media {
-    margin: 1rem 0;
-  }
-  .social-media a {
-    margin: 0 0.5rem;
-    color: #007BFF;
-    font-size: 1.2rem;
-    text-decoration: none;
-  }
-  
-  /* Responzívne štýly */
-  @media (max-width: 768px) {
-    .hero {
-      flex-direction: column;
-      text-align: center;
-    }
-    .hero-content, .hero-image {
-      max-width: 100%;
-    }
-    .nav-links {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  }
+}
