@@ -180,6 +180,10 @@
     color: #fff;
     border: none;
     border-radius: 3px;
+    cursor: pointer;
+  }
+  .newsletter button:hover {
+    background: #0056b3;
   }
   .social-media {
     margin: 1rem 0;
