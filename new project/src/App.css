@@ -1,0 +1,27 @@
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-text {
+  animation: textAnimation 1s ease-in-out;
+}
+
+@keyframes scaleImage {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+.scale-on-scroll {
+  transition: transform 0.5s ease-in-out;
+}
