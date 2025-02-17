@@ -1,0 +1,32 @@
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-text {
+  animation: textAnimation 1s ease-in-out;
+}
+
+.scale-on-scroll {
+  transition: transform 0.5s ease-in-out;
+}
+
+@keyframes colorChange {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-color {
+  background: linear-gradient(270deg, #e11d48, #f97316, #22c55e, #3b82f6, #e11d48);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorChange 8s infinite;
+}
