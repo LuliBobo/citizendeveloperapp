@@ -10,24 +10,26 @@ import {
   Users,
   Clock
 } from 'lucide-react';
-import './App.css'; // Import the CSS file
+import './index.css';
 
 function App() {
   const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (imageRef.current) {
-        const scrollPosition = window.scrollY;
-        const scale = 0.5 + (scrollPosition / window.innerHeight) * 1.5;
-        imageRef.current.style.transform = `scale(${Math.min(scale, 2)})`;
-      }
+      if (!imageRef.current) return;
+      
+      const rect = imageRef.current.getBoundingClientRect();
+      const scrollPercentage = Math.max(0, Math.min(1, 1 - (rect.top / window.innerHeight)));
+      const scale = 0.5 + (scrollPercentage * 1.5); // Scale from 0.5x to 2x
+      
+      imageRef.current.style.transform = `scale(${scale})`;
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    handleScroll(); // Initial call
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -60,8 +62,10 @@ function App() {
       <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6 animate-text">
-              Build Smarter, Launch Faster<br />with Citizen Developer App
+            <h1 className="text-5xl font-bold mb-6">
+              <span className="animate-color">
+                Build Smarter, Launch Faster<br />with Citizen Developer App
+              </span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Transform your ideas into reality without writing a single line of code
@@ -76,12 +80,12 @@ function App() {
               </button>
             </div>
           </div>
-          <div className="mt-16">
+          <div className="mt-16 overflow-hidden">
             <img 
               ref={imageRef}
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80"
               alt="Dashboard Preview"
-              className="rounded-xl shadow-2xl scale-on-scroll"
+              className="rounded-xl shadow-2xl transform scale-50 transition-transform duration-300"
             />
           </div>
         </div>
