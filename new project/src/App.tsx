@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { 
   ArrowRight, 
   BarChart2, 
@@ -6,9 +6,7 @@ import {
   Bell, 
   Terminal, 
   CheckCircle2,
-  Server,
-  Users,
-  Clock
+  Server
 } from 'lucide-react';
 import './index.css';
 
@@ -21,20 +19,19 @@ function App() {
       
       const rect = imageRef.current.getBoundingClientRect();
       const scrollPercentage = Math.max(0, Math.min(1, 1 - (rect.top / window.innerHeight)));
-      const scale = 0.5 + (scrollPercentage * 1.5); // Scale from 0.5x to 2x
+      const scale = 0.5 + (scrollPercentage * 1.5);
       
       imageRef.current.style.transform = `scale(${scale})`;
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
       <nav className="fixed w-full bg-white/80 backdrop-blur-sm z-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -58,7 +55,6 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -91,7 +87,6 @@ function App() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -114,7 +109,6 @@ function App() {
         </div>
       </section>
 
-      {/* Social Proof Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -131,7 +125,6 @@ function App() {
         </div>
       </section>
 
-      {/* Benefits Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -167,7 +160,6 @@ function App() {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section className="py-20 bg-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">Start Monitoring Your Stack Today</h2>
@@ -180,7 +172,6 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
