@@ -1,3 +1,4 @@
+/* Animácia pre text */
 @keyframes textAnimation {
   0% {
     opacity: 0;
@@ -13,10 +14,7 @@
   animation: textAnimation 1s ease-in-out;
 }
 
-.scale-on-scroll {
-  transition: transform 0.5s ease-in-out;
-}
-
+/* Animácia pre zmenu farby textu */
 @keyframes colorChange {
   0% { color: #ff5733; }  /* Červená */
   25% { color: #ffbd33; } /* Oranžová */
@@ -27,4 +25,9 @@
 
 .animated-text {
   animation: colorChange 4s infinite alternate ease-in-out;
+}
+
+/* Animácia pre škálovanie pri scrollovaní */
+.scale-on-scroll {
+  transition: transform 0.5s ease-in-out;
 }

@@ -59,7 +59,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">
-              <span className="animate-color">
+              <span className="animated-text">
                 Build Smarter, Launch Faster<br />with Citizen Developer App
               </span>
             </h1>
@@ -81,7 +81,7 @@ function App() {
               ref={imageRef}
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80"
               alt="Dashboard Preview"
-              className="rounded-xl shadow-2xl transform scale-50 transition-transform duration-300"
+              className="rounded-xl shadow-2xl scale-on-scroll"
             />
           </div>
         </div>
